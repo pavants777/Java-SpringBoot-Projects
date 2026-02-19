@@ -21,4 +21,10 @@ public class StudentService {
     public StudentEntity addNewStudent(StudentEntity student){
         return studentRepository.save(student);
     }
+
+    public StudentEntity getStudentById(Long id){
+        return studentRepository.findById(id).orElse(null);
+    }
+
+
 }

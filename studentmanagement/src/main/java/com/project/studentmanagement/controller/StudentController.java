@@ -24,4 +24,9 @@ public class StudentController {
     public StudentEntity addNewStudent(@RequestBody StudentEntity student){
         return studentService.addNewStudent(student);
     }
+
+    @GetMapping("/findbyid/{id}")
+    public StudentEntity getStudentById(@PathVariable Long id){
+        return studentService.getStudentById(id);
+    }
 }
