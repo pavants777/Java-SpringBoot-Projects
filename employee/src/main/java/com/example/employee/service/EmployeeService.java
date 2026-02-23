@@ -21,6 +21,7 @@ public class EmployeeService {
     }
 
     public String addEmployee(EmployeeEntity employee) {
+
         employeeRepository.save(employee);
         return "Employee Created !";
     }

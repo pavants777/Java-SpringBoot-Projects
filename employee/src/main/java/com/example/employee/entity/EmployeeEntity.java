@@ -1,6 +1,8 @@
 package com.example.employee.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -11,9 +13,11 @@ public class EmployeeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotBlank
     private String name;
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
+
     private String address;
     private Integer salary;
     @Column(name = "date_of_join")
