@@ -5,6 +5,7 @@ import com.example.ems1.dto.EmployeeResponseDto;
 import com.example.ems1.entity.EmployeeEntity;
 import com.example.ems1.service.EmployeeService;
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -31,9 +32,9 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}")
-    public EmployeeResponseDto getEmployeeById(@PathVariable Long id){
+    public ResponseEntity<EmployeeResponseDto> getEmployeeById(@PathVariable Long id){
        EmployeeEntity employeeEntity = employeeService.getEmployeeById(id);
-       return employeeService.convertToResponse(employeeEntity);
+       EmployeeResponseDto employee = employeeService.convertToResponse(employeeEntity);
+       return ResponseEntity.ok(employee);
     }
-
 }
