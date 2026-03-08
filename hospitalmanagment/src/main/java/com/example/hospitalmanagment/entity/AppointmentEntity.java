@@ -21,6 +21,11 @@ public class AppointmentEntity {
     @NotBlank
     private Data date;
 
-    @NotBlank
-    private 
+    @ManyToOne
+    @JoinColumn(name = "Doctor_id")
+    private DoctorEntity doctor;
+
+    @ManyToOne
+    @JoinColumn(name = "Patient_id")
+    private PatientEntity patient;
 }
